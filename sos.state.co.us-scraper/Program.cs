@@ -10,7 +10,7 @@ using Dapper;
 List<ColoradoDataset> entries = new List<ColoradoDataset>();
 using (var connection = new SqlConnection(Environment.GetEnvironmentVariable("WebConnectionString")))
 {
-    entries = connection.Query<ColoradoDataset>("Select * from ColoradoDatasets where agentFirstName is NULL and agentCompany is NULL order by entityid desc").ToList();
+    entries = connection.Query<ColoradoDataset>("Select * from ColoradoDatasets where agentFirstName is NULL and agentCompany is NULL order by entityid asc").ToList();
 }
 
 int pages = (entries.Count + 5 - 1) / 5;
